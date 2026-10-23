@@ -1,0 +1,110 @@
+:root {
+  --bg: #eef2f1;
+  --surface: #ffffff;
+  --ink: #14211f;
+  --muted: #5d6d6a;
+  --line: #d7e0de;
+  --brand: #0f6b66;
+  --brand-ink: #ffffff;
+  --owed: #1c8a56;
+  --owes: #c8452f;
+  --radius: 10px;
+  --heading: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--body); }
+h1, h2, h3, .brand { font-family: var(--heading); letter-spacing: -0.01em; margin: 0; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); margin: 0.1rem 0; }
+.error { color: var(--owes); margin: 0.5rem 0; }
+:focus-visible { outline: 3px solid #5aa8a2; outline-offset: 2px; }
+
+.shell { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+.sidebar { background: var(--ink); color: #e6efed; padding: 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.brand { font-size: 1.5rem; font-weight: 700; }
+.group-link { display: flex; justify-content: space-between; align-items: baseline; width: 100%; background: transparent; color: inherit; border: 0; padding: 0.6rem 0.75rem; border-radius: 8px; text-align: left; cursor: pointer; font: inherit; }
+.group-link small { opacity: 0.65; }
+.group-link:hover { background: rgba(255,255,255,.08); }
+.group-link.active { background: rgba(255,255,255,.16); }
+.new-group { display: grid; gap: 0.75rem; margin-top: auto; }
+.new-group h2 { font-size: 1rem; margin: 0; }
+.new-group .muted { color: #9fb3af; }
+
+.main { padding: 2rem clamp(1rem, 3vw, 2.5rem); max-width: 1180px; }
+.empty { margin-top: 15vh; max-width: 30rem; }
+.empty p { color: var(--muted); font-size: 1.1rem; }
+.group-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.two-col { display: grid; grid-template-columns: minmax(300px, 420px) 1fr; gap: 1.25rem; align-items: start; margin-top: 1.25rem; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; }
+.banner { padding: 0.6rem 0.9rem; border-radius: 8px; background: #fbe9e5; }
+
+label { display: grid; gap: 0.25rem; font-size: 0.9rem; color: var(--muted); }
+input, select { font: inherit; color: var(--ink); background: #fff; border: 1px solid #b9c7c4; border-radius: 8px; padding: 0.5rem 0.65rem; width: 100%; }
+.sidebar input { background: #1d302d; border-color: #355552; color: #fff; }
+.sidebar label { color: #b4c6c2; }
+button { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid #b9c7c4; background: #fff; color: var(--ink); padding: 0.45rem 0.9rem; }
+button:hover { border-color: var(--brand); }
+button.primary { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); font-weight: 600; }
+button.primary:disabled { opacity: 0.5; cursor: not-allowed; }
+button.link { border: 0; background: none; padding: 0; color: var(--brand); text-decoration: underline; }
+button.danger { color: var(--owes); }
+.inline { display: flex; gap: 0.5rem; }
+.inline input { width: 12rem; }
+
+/* balances: the one expressive element. Bars extend left (owes) or right (owed) from a centre axis. */
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.bar-row { display: grid; grid-template-columns: 7rem 1fr 11rem; gap: 0.75rem; align-items: center; }
+.bar-row .who { font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+.track { position: relative; height: 1.4rem; background: #f1f5f4; border-radius: 6px; }
+.axis { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 2px; background: #9db1ad; }
+.fill { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
+.owed .fill { left: 50%; background: var(--owed); }
+.owes .fill { right: 50%; background: var(--owes); }
+.bar-row .amt { font-variant-numeric: tabular-nums; font-size: 0.95rem; }
+.owed .amt { color: var(--owed); }
+.owes .amt { color: var(--owes); }
+.even .amt { color: var(--muted); }
+
+.transfers { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.transfers li { display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 0.6rem 0.8rem; border: 1px solid var(--line); border-radius: 8px; }
+
+.expense-form { display: grid; gap: 0.9rem; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+fieldset { border: 0; padding: 0; margin: 0; }
+legend { font-size: 0.9rem; color: var(--muted); padding: 0; margin-bottom: 0.35rem; }
+.segmented { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #b9c7c4; border-radius: 8px; overflow: hidden; }
+.segmented button { border: 0; border-radius: 0; background: #fff; }
+.segmented button + button { border-left: 1px solid #b9c7c4; }
+.segmented button.on { background: var(--brand); color: #fff; }
+.people { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.4rem; }
+.people li { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: 2.2rem; }
+.check { display: flex; align-items: center; gap: 0.5rem; color: var(--ink); font-size: 1rem; }
+.check input { width: auto; }
+.value { display: flex; align-items: center; gap: 0.35rem; }
+.value input { width: 6.5rem; text-align: right; }
+.hint { margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--owes); }
+.hint.ok { color: var(--owed); }
+
+.history { list-style: none; margin: 0; padding: 0; }
+.history li { padding: 0.8rem 0; border-top: 1px solid var(--line); }
+.history li:first-child { border-top: 0; padding-top: 0; }
+.history .line { display: flex; justify-content: space-between; gap: 1rem; }
+.history .shares { color: var(--muted); font-size: 0.9rem; margin: 0.2rem 0 0.3rem; }
+.history .payment { background: #f4f9f6; margin: 0 -0.5rem; padding-left: 0.5rem; padding-right: 0.5rem; border-radius: 6px; }
+
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { padding: 1rem; }
+  .new-group { margin-top: 0; }
+  .two-col { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 5.5rem 1fr; }
+  .bar-row .amt { grid-column: 1 / -1; }
+  .transfers li { grid-template-columns: 1fr auto; }
+  .transfers li button { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
